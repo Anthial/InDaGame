@@ -1,6 +1,6 @@
 # InDaGame
 The functional remnants of an old libgdx runner/survival game project from around mid 2017.
-Co-Authored by Keivan Matinzadeh
+<br>Co-Authored by Keivan Matinzadeh
 
 **Requirements:**
 * JDK Version 1.8
