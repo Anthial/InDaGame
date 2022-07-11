@@ -3,6 +3,7 @@ package com.mygdx.indagame.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -59,7 +60,7 @@ public class GameScreen implements Screen {
 
     private BitmapFont bitmapFont;
 
-    private Sound gpm;
+    private Music gpm;
 
     private float gravStore;
 
@@ -158,7 +159,9 @@ public class GameScreen implements Screen {
         }
 
         gpm = game.getGpm().get(random.nextInt(game.getGpm().size));
-        gpm.loop(0.6f);
+        gpm.setLooping(true);
+        gpm.setVolume(0.5f);
+        gpm.play();
 
         //ball animations
         ballAtlas = new TextureAtlas("ballStates/balls.atlas");
@@ -241,7 +244,9 @@ public class GameScreen implements Screen {
                 pauseTime = pauseTime + pauseTimeTemp;
                 gamePaused = false;
                 pauseTimeCounter = 0;
-                gpm.loop(0.6f);
+                gpm.setLooping(true);
+                gpm.setVolume(0.5f);
+                gpm.play();
             }
         }
     }

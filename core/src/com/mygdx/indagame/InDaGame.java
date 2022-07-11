@@ -5,6 +5,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -32,7 +33,7 @@ public class InDaGame extends Game {
 	private Sound jumpSound;
 
 
-	private Array<Sound> gpm;
+	private Array<Music> gpm;
 	private Preferences highScore, currentScore;
 
 	private Array<Texture> bkgs;
@@ -49,7 +50,7 @@ public class InDaGame extends Game {
 	@Override
 	public void create () {
 
-		gpm = new Array<Sound>();
+		gpm = new Array<Music>();
 		bkgs = new Array<Texture>();
 		bkgsGrad = new Array<Texture>();
 		bkgsFull = new Array<Texture>();
@@ -64,18 +65,11 @@ public class InDaGame extends Game {
 		failSound = Gdx.audio.newSound(Gdx.files.internal("sounds/sadtromb.ogg"));
 		boostSound = Gdx.audio.newSound(Gdx.files.internal("sounds/boostSound.ogg"));
 		jumpSound = Gdx.audio.newSound(Gdx.files.internal("sounds/jumpSound.ogg"));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm1.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm2.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm3.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm4.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm5.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm6.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm7.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm8.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm9.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm10.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm11.ogg")));
-		gpm.add(Gdx.audio.newSound(Gdx.files.internal("sounds/gpm/gpm12.ogg")));
+		for (int i = 1; i < 13; i++){
+			gpm.add(Gdx.audio.newMusic(Gdx.files.internal("sounds/gpm/gpm"+i+".ogg")));
+		}
+		
+		
 
 
 
@@ -154,7 +148,7 @@ public class InDaGame extends Game {
 		return jumpSound;
 	}
 
-	public Array<Sound> getGpm() {
+	public Array<Music> getGpm() {
 		return gpm;
 	}
 
