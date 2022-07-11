@@ -9,7 +9,7 @@ The functional remnants of an old libgdx runner/survival game project from aroun
 
 **Setup:**
 1) Open your favourite terminal.
-2) Run `gradle build` in the source folder of this downloaded repository.
+2) Run `gradle build` in the source folder of this downloaded repository. (If the build fails, try running it again, that usually works.)
 3) Navigate to `[source folder]/android/build/outputs/apk/`.
 4) You can now run `android-debug.apk` on your emulator or on your phone. (Assuming you allow installations from unknown sources.)
 
