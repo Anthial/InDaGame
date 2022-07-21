@@ -3,6 +3,7 @@ package com.mygdx.indagame.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -21,7 +22,8 @@ public class MenuScreen implements Screen {
 
     private int counter;
 
-    private Sound bkgmusic, playSound, aboutSound;
+    private Sound playSound, aboutSound;
+    private Music bkgmusic;
 
     //background texture
     private Texture bkg;
@@ -59,8 +61,10 @@ public class MenuScreen implements Screen {
         playButtonHeight = 300;
         playButtonWidth = 400;
 
-        game.getBkgmusic().loop(0.3f);
-
+        bkgmusic.setLooping(true);
+        bkgmusic.setVolume(0.5f);
+        bkgmusic.play();
+        
         about = new Texture("AboutButton.png");
         aboutHeight = 100;
         aboutWidth = 100;
@@ -102,7 +106,9 @@ public class MenuScreen implements Screen {
 
         //make sure that sound starts playing
         if (counter == 0){
-            bkgmusic.loop(0.3f);
+            bkgmusic.setLooping(true);
+            bkgmusic.setVolume(0.5f);
+            bkgmusic.play();
             counter++;
         }
 

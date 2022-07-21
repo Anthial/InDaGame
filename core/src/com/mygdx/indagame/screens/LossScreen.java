@@ -3,6 +3,7 @@ package com.mygdx.indagame.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -26,7 +27,8 @@ public class LossScreen implements Screen {
     private BitmapFont bitmapFont;
 
     //sounds
-    private Sound lossMusic, playSound, aboutSound;
+    private Sound playSound, aboutSound;
+    private Music lossMusic;
 
     //scorehandling
     private long currentScore, highScore;
@@ -47,8 +49,8 @@ public class LossScreen implements Screen {
 
     //variables for about button
     private Texture about;
-    private int aboutHeight;
-    private int aboutWidth;
+    private int backHeight;
+    private int backWidth;
 
     //variables for cursor position
     private int xPos;
@@ -96,12 +98,14 @@ public class LossScreen implements Screen {
 
         //set sounds to play at loss
         game.getFailSound().play(0.5f);
-        game.getLossMusic().loop(0.3f);
+        lossMusic.setLooping(true);
+        lossMusic.setVolume(0.5f);
+        lossMusic.play();
 
         //draw button to return to main screen
         about = new Texture("backButton.png");
-        aboutHeight = 100;
-        aboutWidth = 100;
+        backHeight = 100;
+        backWidth = 100;
 
         //get cursor position
         xPos = 0;
@@ -169,11 +173,11 @@ public class LossScreen implements Screen {
         }
 
         //draw back button
-        game.batch.draw(about, -InDaGame.WIDTH/2, InDaGame.HEIGHT/2-aboutHeight/2);
+        game.batch.draw(about, -InDaGame.WIDTH/2, InDaGame.HEIGHT/2-backHeight/2);
 
 
         //launch MenuScreen
-        if (yPos < aboutHeight && xPos < aboutWidth
+        if (yPos < backHeight && xPos < backWidth
                 && Gdx.input.justTouched()){
             System.out.println("Testing about");
             aboutSound.play(0.5f);

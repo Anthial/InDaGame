@@ -23,11 +23,11 @@ public class InDaGame extends Game {
 	/*I get a bit anxious when I see an object that can change as a public variable, perhaps we should just add a
         getBatch method /S
          */
-	private Sound bkgmusic;
+	private Music bkgmusic;
 	private Sound playSound;
 	private Sound aboutSound;
 	private Sound aboutBkg;
-	private Sound lossMusic;
+	private Music lossMusic;
 	private Sound failSound;
 	private Sound boostSound;
 	private Sound jumpSound;
@@ -57,11 +57,11 @@ public class InDaGame extends Game {
 		bkgsBack = new Array<Texture>();
 
 		//load sounds
-		bkgmusic = Gdx.audio.newSound(Gdx.files.internal("sounds/guitarsynth.ogg"));
+		bkgmusic = Gdx.audio.newMusic(Gdx.files.internal("sounds/gpm12_newmenu.ogg"));
 		playSound = Gdx.audio.newSound(Gdx.files.internal("sounds/playbass.ogg"));
 		aboutSound = Gdx.audio.newSound(Gdx.files.internal("sounds/aboutclick.ogg"));
 		aboutBkg = Gdx.audio.newSound(Gdx.files.internal("sounds/aboutmenu.ogg"));
-		lossMusic = Gdx.audio.newSound(Gdx.files.internal("sounds/sadmando.ogg"));
+		lossMusic = Gdx.audio.newMusic(Gdx.files.internal("sounds/sadmando.ogg"));
 		failSound = Gdx.audio.newSound(Gdx.files.internal("sounds/sadtromb.ogg"));
 		boostSound = Gdx.audio.newSound(Gdx.files.internal("sounds/boostSound.ogg"));
 		jumpSound = Gdx.audio.newSound(Gdx.files.internal("sounds/jumpSound.ogg"));
@@ -116,7 +116,7 @@ public class InDaGame extends Game {
 		batch.dispose();
 	}
 
-	public Sound getBkgmusic() {
+	public Music getBkgmusic() {
 		return bkgmusic;
 	}
 
@@ -132,7 +132,7 @@ public class InDaGame extends Game {
 		return aboutBkg;
 	}
 
-	public Sound getLossMusic() {
+	public Music getLossMusic() {
 		return lossMusic;
 	}
 

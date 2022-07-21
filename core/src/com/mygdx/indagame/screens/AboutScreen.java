@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.audio.Music;
 import com.mygdx.indagame.InDaGame;
 
 
@@ -17,6 +18,8 @@ public class AboutScreen implements Screen {
 
 
     private Texture backbutton;
+    private Music bkgmusic;
+
 
     private BitmapFont bitmapFont;
     private BitmapFont bitmapFontSmall;
@@ -30,6 +33,7 @@ public class AboutScreen implements Screen {
 
 
         backbutton = new Texture("backButton.png");
+        bkgmusic = game.getBkgmusic();
 
         //Using the build in font generator to convert a TrueTypeFont to a supported BitMapFont.
         //based on the example code presented in the libGDX documentation
@@ -93,7 +97,9 @@ public class AboutScreen implements Screen {
                 game.getAboutSound().play(0.5f);
                 counter = 0;
                 game.getAboutBkg().stop();
-                game.getBkgmusic().play(0.3f);
+                bkgmusic.setLooping(true);
+                bkgmusic.setVolume(0.5f);
+                bkgmusic.play();
         }
 
 
